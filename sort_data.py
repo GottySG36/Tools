@@ -13,7 +13,7 @@ with open(file,'r') as data_in:
             if line[0] != '>':
                 nb += 1
                 if nb == 1:
-                    line1 == line
+                    line1 = line
                 elif nb == 2:
                     data_out.write(header)
                     data_out.write(line1)
