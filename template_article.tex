@@ -1,0 +1,196 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Def page params   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[letterpaper,10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{bookman}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{listingsutf8}
+\usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage[titles]{tocloft}
+\usepackage{graphicx}
+\usepackage[numbib]{tocbibind}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+
+\definecolor{Gray}{gray}{0.9}
+\definecolor{light-blue}{RGB}{210,240,255}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+%% Adds numbering in the TOC for the list of figures
+\renewcommand{\listoffigures}{\begingroup
+\tocsection
+\tocfile{Liste des figures}{lof}
+\endgroup}
+
+%% Adds numbering in the TOC for the list of tables
+\renewcommand{\listoftables}{\begingroup
+\tocsection
+\tocfile{\listtablename}{lot}
+\endgroup}
+
+%% Adds numbering in the TOC for the list of lstlistings
+\renewcommand{\lstlistoflistings}{\begingroup
+\tocsection
+\tocfile{Liste des blocs de code}{lol}
+\endgroup}
+
+%\addto\captionsfrench{% Replace "english" with the language you use
+%    \renewcommand{\contentsname}%
+%    {\thesection{} {} Table des matières}%
+%}
+
+%% formating for section titles
+\titleformat
+{\section} % command
+[hang] % shape
+{\Large\bfseries\itshape} % format
+{\thesection{} -:- } % label
+{0cm} % sep
+{} % before code
+[\vspace{-0.75cm}\rule{\textwidth}{1pt}] % after code
+
+%% formating for chapter titles
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large\itshape} % format
+{}% label
+{0ex} % sep
+{%
+    \rule{\textwidth}{1pt}
+    \vspace{0ex}
+    \centering
+} % before-code
+[
+\vspace{0ex}%
+\rule{\textwidth}{0.3pt}
+] % after-code
+
+\definecolor{darkgrey}{RGB}{105,105,105}
+\definecolor{darkblue}{RGB}{0,0,100}
+
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=darkgrey
+}
+
+
+\title{%
+    \vspace{-2cm}\Large{UNIVERSITÉ LAVAL\\FACULTÉ DES SCIENCES ET DE GÉNIE}\\\vspace{2cm}
+    \textbf{Amélioration des performances d'un pipeline d'analyse de métagénomique et implantation d'un pipeline de métatranscriptomique}\\\vspace{2cm}
+    \Large{Rapport final de stage}\\\vspace{2cm}
+}
+\author{%
+    par\\
+    Gotty, Simon\vspace{2cm}\\
+    Rapport présenté au Département des stages en milieu pratique\\
+    Stage en bio-informatique I
+}
+\date{\vspace{\fill}\today}
+
+%% listings / code blocks settings
+\lstset{%
+    basicstyle=\footnotesize\ttfamily,
+    language=python,
+    breaklines=true,
+    frame=single,
+    extendedchars=true,
+    showstringspaces=false,
+    backgroundcolor=\color{light-blue},
+    caption=\
+}
+
+%% Formating for listings titles / captions
+\renewcommand\lstlistingname{Code}
+\DeclareCaptionFormat{listing}{\vspace{0.15cm}\rule{\textwidth}{1pt}\par{#1#2#3}}
+\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+%% Formating for figure captions
+\DeclareCaptionFormat{fig}{\vspace{0.15cm}\rule{\textwidth}{1pt}\par{#1#2#3}}
+\captionsetup[figure]{format=fig,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+%% formating for tables captions
+\DeclareCaptionFormat{tab}{\vspace{0.15cm}\rule{\textwidth}{1pt}\par{#1#2#3}}
+\captionsetup[table]{format=tab,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+%%  Removes automatic insertion of references title and allows for addition in toc 
+%%  through tocloft / tocbibind
+\renewcommand\refname{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Session Été 2018\\}
+\rhead{\today\\}
+\chead{Simon Gotty\\111 143 536}
+\lfoot{\scriptsize (retour \hyperlink{toc}{TdM})}
+\cfoot{Université Laval}
+\rfoot{\thepage}
+\setlength{\headsep}{1cm}
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0.5cm}
+\setlength{\voffset}{1cm}
+\setlength{\textheight}{22cm}
+
+\setcounter{tocdepth}{3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Début du document  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                                                                  %
+                                                                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 100 characters base line %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+                                                                                                  %
+                                                                                                  %
+\begin{document}
+
+\begin{onehalfspace}
+\pagenumbering{roman}
+\maketitle
+\newpage
+
+\section{Introduction}
+\pagenumbering{arabic}
+
+
+
+
+\newpage
+
+%%  BIBLIOGRAPHY : CHANGE NAME TO MATCH ACTUAL FILE
+\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+
+
+
+\newpage
+\section{Annexes}
+\pagenumbering{Alph}
+
+%% APPENDIX
+
+
+\end{onehalfspace}
+
+\end{document}
